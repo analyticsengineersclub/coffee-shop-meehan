@@ -1,0 +1,14 @@
+version: 2
+
+models:
+
+  - name: customers
+    description: provides information on individual customers
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: monthly_customers
+    description: new customers per month

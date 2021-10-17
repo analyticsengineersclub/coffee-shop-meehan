@@ -1,0 +1,9 @@
+{% docs __overview__ %}
+# Coffee Shop Project Overview
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin gravida ut tortor eu lobortis. Nam pharetra molestie urna, at lobortis ipsum dictum at. Donec dignissim enim enim, ut tincidunt justo consectetur eget. Integer iaculis porttitor blandit. Morbi in commodo justo. In vehicula nisl at elit dignissim lobortis. Morbi sodales luctus sodales. Etiam vel orci pellentesque, placerat urna quis, rhoncus erat.
+
+Sed placerat tempus ipsum, nec ultricies dui consequat id. Morbi pharetra condimentum metus, id porta magna malesuada id. Etiam id tortor id ipsum placerat placerat ac nec mauris. Aenean sed lacus non lectus dapibus fringilla nec eget odio. Proin rhoncus, justo vitae consectetur gravida, neque arcu ornare purus, ut eleifend justo velit id libero. Mauris sagittis tincidunt consequat. Fusce in purus diam. Vestibulum non odio in dolor elementum ornare. Integer at feugiat lorem. Donec rhoncus aliquet nulla. Sed aliquam pulvinar dolor, vel mollis nulla pulvinar sit amet. Sed sit amet ultrices mauris. Mauris mattis suscipit laoreet. Nunc non tincidunt magna, at facilisis orci.
+
+Praesent mattis luctus convallis. Nulla a finibus purus. Donec vel luctus ante, eget molestie risus. Phasellus aliquam nulla mauris, efficitur consectetur tellus placerat in. Aliquam rutrum blandit est eu suscipit. Praesent metus felis, malesuada sed vulputate id, tristique ac leo. Maecenas luctus pretium volutpat. Cras sit amet dolor eget eros placerat finibus et ut neque. Mauris rhoncus odio sapien, at lobortis dolor accumsan quis. Aenean auctor nulla nec leo pharetra aliquam. Suspendisse viverra euismod lectus, ac eleifend neque varius a. Ut vitae efficitur felis, id sagittis tortor.
+
+{% enddocs %}
