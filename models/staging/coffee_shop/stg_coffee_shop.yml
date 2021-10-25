@@ -2,7 +2,7 @@ version: 2
 
 models:
 
-  - name: customers
+  - name: stg_customers
     description: provides information on individual customers
     columns:
       - name: customer_id
@@ -10,5 +10,5 @@ models:
           - unique
           - not_null
 
-  - name: monthly_customers
+  - name: stg_monthly_customers
     description: new customers per month
