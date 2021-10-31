@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: user_stitching
+    description: stitches users together such that every registered customer is only logged to a single visitor_id
+    columns:
+      - name: visitor_id
+        tests:
+          - single_visitor_id_per_customer
