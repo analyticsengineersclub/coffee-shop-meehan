@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: user_stitching
+  - name: int_user_stitching
     description: stitches users together such that every registered customer is only logged to a single visitor_id
     columns:
       - name: visitor_id
