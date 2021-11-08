@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: web_tracking
+    project: analytics-engineers-club
+  
+    tables:
+      - name: pageviews
+        description: customer browsing sessions
+        columns:
+          - name: id
+            description: unique per page view
+            tests:
+              - unique
+              - not_null
+          - name: visitor_id
+            description: unique per browsing session, but not unique in this table
+            tests:
+              - not_null
