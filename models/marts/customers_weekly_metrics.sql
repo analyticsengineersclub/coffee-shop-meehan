@@ -1,20 +1,11 @@
-with calendar as (
-    {{ dbt_utils.date_spine(
-        datepart="week",
-        start_date="cast(date_trunc('2021-01-01', week) as date)",
-        end_date="cast(current_date() as date)"
-        )
-    }}
-),
-
-weeks_as_customer as (
+with weeks_as_customer as (
     select
         customer_id,
         row_number() over (partition by customer_id order by calendar.date_week) as week,
         calendar.date_week
     
     from {{ ref('dim_customers') }} customers
-        cross join calendar
+        cross join {{ ref('calendar_weeks') }} calendar
     where calendar.date_week >= cast(date_trunc(customers.first_order_at, week) as date)
 ),
 
