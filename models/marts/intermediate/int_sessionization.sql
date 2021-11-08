@@ -1,3 +1,13 @@
+{{ config(
+    materialized='table',
+    partition_by = {
+        "field": "occured_at",
+        "data_type": "datetime",
+        "granularity": "day"
+    },
+    cluster_by=['device_type', 'page']
+) }}
+
 with session_splitter as (
     select
         *,
