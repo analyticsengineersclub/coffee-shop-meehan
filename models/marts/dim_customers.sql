@@ -1,4 +1,11 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='table',
+    partition_by = {
+        "field": "first_order_at",
+        "data_type": "datetime",
+        "granularity": "day"
+    }
+) }}
 
 with customer_orders as (
     select

@@ -1,3 +1,8 @@
+{{ config(
+    materialized='table',
+    cluster_by=['customer_id', 'device_type', 'page']
+) }}
+
 with session_splitter as (
     select
         *,
