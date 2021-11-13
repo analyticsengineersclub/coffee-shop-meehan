@@ -1,7 +1,10 @@
+{% set categories = ['coffee beans', 'merch', 'brewing supplies'] %}
+
 select
   date_trunc(order_date, month) as date_month,
-  sum(case when category = 'coffee beans' then price end) as coffee_beans_revenue,
-  sum(case when category = 'merch' then price end) as merch_revenue,
-  sum(case when category = 'brewing supplies' then price end) as brewing_supplies_revenue
+  {% for category in categories %}
+  sum(case when category = '{{category}}' then price end) as {{category|replace(" ", "_")}}_revenue,
+  -- ^replace() is necessary to handle whitespace in coffee beans and brewing supplies for column naming
+  {% endfor %}
 from {{ ref('int_customer_orders') }}
 group by 1
