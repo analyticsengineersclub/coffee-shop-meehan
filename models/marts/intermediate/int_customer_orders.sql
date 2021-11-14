@@ -19,17 +19,5 @@ with customer_orders as (
         left join {{ ref('stg_customers') }} customers on orders.customer_id = customers.id
 )
 
-select
-    customer_id,
-    full_name,
-    case
-        when customer_order_count > 1 then false
-        else true
-    end as new_customer,
-    product_name,
-    category,
-    price,
-    order_id,
-    date_trunc(order_date, week) as order_week
-
+select *
 from customer_orders
