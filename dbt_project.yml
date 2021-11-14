@@ -24,6 +24,12 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_modules"
 
+# Points GitHub package to the where the raw GitHub data lives
+vars:
+  github_source:
+    github_database: analytics-engineers-club
+    github_schema: github 
+  github__using_repo_team: false # by default this is assumed to be true
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -40,3 +46,7 @@ models:
     staging:
       coffee_shop:
         +materialized: view
+  github:
+    +schema: github
+  github_source:
+    +schema: github

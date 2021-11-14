@@ -42,6 +42,15 @@ sources:
               - unique
               - not_null
       - name: product_prices
+        # test that each product can only have one price at any given time
+        tests:
+          - dbt_utils.mutually_exclusive_ranges:
+              lower_bound_column: created_at
+              upper_bound_column: ended_at
+              partition_by: product_id
+              gaps: not_allowed
+              zero_length_range_allowed: false
+
         columns:
           - name: id
             description: multiple ids can exist for the same product_id if it had multiple prices throughout history
