@@ -40,9 +40,10 @@ vars:
 models:
   coffee_shop:
     marts:
-      +materialized: table
-      intermediate:
-        +materialized: view
+      core:
+        +materialized: table
+        intermediate:
+          +materialized: view
     staging:
       coffee_shop:
         +materialized: view
