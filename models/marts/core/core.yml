@@ -1,0 +1,11 @@
+version: 2
+
+models:
+
+  - name: customers_weekly_metrics
+    description: tracks revenue and cumlative_revenue for each customer over time; one row per customer per week where week 1 is the week of the customers acquisition (first_order_at)
+    columns:
+      - name: cumulative_revenue
+        tests:
+          - not_null
+          - greater_than_zero
