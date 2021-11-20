@@ -1,13 +1,16 @@
 {{ config(
-    materialized='incremental'
+    materialized='incremental',
+    unique_key='github_username' 
 ) }}
+-- the `unique_key` tells dbt how to aggregate records so that the incremental model doesn't create duplicates when it updates
 
 with events as (
     select * from {{ source('advanced_dbt_examples', 'form_events') }}
 
     --the below is necessary for incremental models to tell dbt how to delineate what the new records are from the last run
+    -- it's a good idea to account for data that could arrive a bit late
     {% if is_incremental() %}
-    where timestamp >= (select max(last_form_entry) from {{this}})
+    where timestamp > (select date_add(max(last_form_entry), interval -1 hour) from {{this}})
     {% endif %}
 
     -- where {{this}} represents the currently existing object mapped to this model
