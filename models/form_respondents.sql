@@ -10,7 +10,10 @@ with events as (
     --the below is necessary for incremental models to tell dbt how to delineate what the new records are from the last run
     -- it's a good idea to account for data that could arrive a bit late
     {% if is_incremental() %}
-    where timestamp > (select date_add(max(last_form_entry), interval -1 hour) from {{this}})
+    where github_username in ( -- <- this ensures that previous records are not dropped from the model
+        select distinct github_username from {{ source('advanced_dbt_examples', 'form_events') }}
+        where timestamp > (select date_add(max(last_form_entry), interval -1 hour) from {{this}})
+    )
     {% endif %}
 
     -- where {{this}} represents the currently existing object mapped to this model
